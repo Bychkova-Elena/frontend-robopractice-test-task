@@ -38,5 +38,11 @@
   },
   "devDependencies": {
     "express": "^4.17.3"
+  },
+  "proxy": {
+    "/api/*":  {
+      "target": "http://localhost:8080",
+      "secure": false
+    }
   }
 }
