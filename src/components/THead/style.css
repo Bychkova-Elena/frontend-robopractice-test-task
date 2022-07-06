@@ -3,4 +3,19 @@ th {
 	padding: 5px;
 	background: #efefef;
 	border: 1px solid #dddddd;
+	position: sticky;
+  left: 0;
+  z-index: 1;
+}
+
+th:first-child {
+  position: sticky;
+  left: 0;
+  z-index: 2;
+}
+
+th:last-child {
+  position: sticky;
+  right: 0;
+  z-index: 2;
 }
