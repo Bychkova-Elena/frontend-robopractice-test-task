@@ -1,0 +1,6 @@
+.table{
+	border: 1px solid #eee;
+	table-layout: fixed;
+	width: 100%;
+	margin-bottom: 20px;
+}

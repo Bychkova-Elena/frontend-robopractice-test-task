@@ -1,11 +1,15 @@
-import React from 'react';
-import ReactDOM from "react-dom/client";
-import { App } from './app';
+import React from "react";
+import ReactDOM from "react-dom";
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(
+import App from "./app/App.tsx";
+
+ReactDOM.render(
   <React.StrictMode>
-    <App />
-  </React.StrictMode>
+      <App />
+  </React.StrictMode>,
+  document.getElementById("root")
 );
 
+if (module.hot) {
+  module.hot.accept();
+}

@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
+import { UserType } from "../../types";
+import TRow from "../TRow";
 
-export const App = () => {
-    
-   const [users, setUsers] = useState();
-    
+const TBody: React.FC = () => {
+   const [users, setUsers] = useState<UserType[]>([]);
+     
    useEffect(() => {
       function getUsers() {
     fetch('/api/users', {
@@ -25,16 +26,15 @@ export const App = () => {
        }
        getUsers()
     }, []);
-    
-   return (
-    <div>
-                {users && users.map((user) => (
-                    <React.Fragment key={user.id}>
-                        <div>
-                            {user.Fullname}
-                        </div>
-                  </React.Fragment>
-                ))}
-     </div>
-    )
-}
+
+  return (
+    <tbody>
+      {users && users.map((user) => (
+        <React.Fragment key={user.id}>
+          <TRow user={ user } />
+        </React.Fragment>
+        ))}
+  </tbody>
+)};
+
+export default React.memo(TBody);
