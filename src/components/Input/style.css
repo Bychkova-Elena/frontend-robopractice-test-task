@@ -6,6 +6,6 @@ input{
 }
 
   input:focus{
-  border: 2px solid rgb(134, 116, 255);
+  border: 2px solid #76c3d8;
   outline: none;
 }
