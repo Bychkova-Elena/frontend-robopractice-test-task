@@ -2,6 +2,23 @@ td{
 	padding: 5px 10px;
 	border: 1px solid #eee;
 	text-align: center;
+	position: sticky;
+  left: 0;
+  z-index: 1;
+}
+
+td:first-child {
+  position: sticky;
+  left: 0;
+  z-index: 2;
+	background: white;
+}
+
+td:last-child {
+  position: sticky;
+  right: 0;
+  z-index: 2;
+	background: white;
 }
 tr:nth-child(odd){
 	background: #fff;
