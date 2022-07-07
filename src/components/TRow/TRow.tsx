@@ -40,7 +40,7 @@ const TRow: React.FC<TRowProps> = ({ user }) => {
   }
   return (
       <tr>
-      <td>{ user.Fullname }</td>
+      <td>{user.Fullname}</td>
       {numbers && numbers.map((i) => (
         <React.Fragment key={i}>
           <td>{chek(i)}</td>

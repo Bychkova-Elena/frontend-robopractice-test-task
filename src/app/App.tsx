@@ -40,14 +40,14 @@ function App() {
     },
     [users]
   );
-    
+  
    return (
      <div>
        <Input
          placeholder="Поиск по имени"
          onChange={handleChange}
             />
-       <Table users={ search } />
+       <Table users={search} />
      </div>
     )
 }
