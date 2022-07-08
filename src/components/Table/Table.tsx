@@ -8,15 +8,14 @@ import "./style.css";
 
 export type TableProps = {
   users: UserType[];
+  requestSort: (arg0: string) => void;
+  sort: Boolean;
 };
     
-const Table: React.FC<TableProps> = ({ users }) => {
+const Table: React.FC<TableProps> = ({ users, requestSort, sort }) => {
 
   const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31];
-  
-    const requestSort = () => { 
-    users.reverse();
-  }
+
 
     const {
     firstContentIndex,
@@ -36,8 +35,8 @@ const Table: React.FC<TableProps> = ({ users }) => {
     <ResizableTable resizable={true} resizeOptions={{}}>
     <thead>
       <tr>
-          <th>User<button type="button" onClick={() => { requestSort() }}>
-          &#8593;
+            <th>User<button type="button" onClick={() => { requestSort("name") }}> 
+          {sort ? '👆' : '👇'}
         </button></th>
         {numbers && numbers.map((i) => (
           <th key={i}>
@@ -54,7 +53,7 @@ const Table: React.FC<TableProps> = ({ users }) => {
         </React.Fragment>
       ))}
     </tbody>
-    </ResizableTable>
+    </ResizableTable> 
       <Pagination page={page} totalPages={totalPages} prevPage={prevPage} nextPage={nextPage} setPage={setPage} />
       </div>
 )};
