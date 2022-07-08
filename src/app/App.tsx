@@ -8,6 +8,7 @@ function App() {
 
   const [users, setUsers] = useState<UserType[]>([]);
   const [search, setSearch] = useState<UserType[]>([]);
+  const [sort, setSort] = useState(false);
      
    useEffect(() => {
       function getUsers() {
@@ -40,6 +41,17 @@ function App() {
     },
     [users]
   );
+
+  const requestSort = (arg: string) => {
+    let sortUsers = users;
+    switch (arg) { 
+      case "name":
+        sortUsers.reverse();
+        setSort(!sort);
+        break;
+    }
+    setUsers(sortUsers);
+    }
   
    return (
      <div>
@@ -47,7 +59,7 @@ function App() {
          placeholder="Поиск по имени"
          onChange={handleChange}
             />
-       <Table users={search} />
+       <Table users={search} requestSort={requestSort} sort={sort} />
      </div>
     )
 }
